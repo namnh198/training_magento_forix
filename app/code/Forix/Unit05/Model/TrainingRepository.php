@@ -14,10 +14,20 @@ use Magento\Framework\Api\SortOrder;
 
 class TrainingRepository implements TrainingRepositoryInterface
 {
+    /**
+     * @var TrainingSearchResultInterfaceFactory
+     */
     private $searchResultFactory;
 
+    /**
+     * @var CollectionFactory
+     */
     private $collectionFactory;
 
+    /**
+     * @param TrainingSearchResultInterfaceFactory $searchResultFactory
+     * @param CollectionFactory $collectionFactory
+     */
     public function __construct(
         TrainingSearchResultInterfaceFactory $searchResultFactory,
         CollectionFactory                    $collectionFactory
@@ -41,6 +51,11 @@ class TrainingRepository implements TrainingRepositoryInterface
         return $searchResults;
     }
 
+    /**
+     * @param FilterGroup $filterGroup
+     * @param Collection $collection
+     * @return void
+     */
     private function addFilterGroupToCollection(
         FilterGroup $filterGroup,
         Collection  $collection
@@ -71,6 +86,11 @@ class TrainingRepository implements TrainingRepositoryInterface
         return $collection->getItems();
     }
 
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     * @return void
+     */
     private function applySearchCriteriaToCollection(
         SearchCriteriaInterface $searchCriteria,
         Collection              $collection
@@ -90,6 +110,11 @@ class TrainingRepository implements TrainingRepositoryInterface
         );
     }
 
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     * @return void
+     */
     private function applySearchCriteriaFiltersToCollection(
         SearchCriteriaInterface $searchCriteria,
         Collection              $collection
@@ -100,6 +125,11 @@ class TrainingRepository implements TrainingRepositoryInterface
         }
     }
 
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     * @return void
+     */
     private function applySearchCriteriaSortOrdersToCollection(
         SearchCriteriaInterface $searchCriteria,
         Collection              $collection
@@ -117,6 +147,11 @@ class TrainingRepository implements TrainingRepositoryInterface
         }
     }
 
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @param Collection $collection
+     * @return void
+     */
     private function applySearchCriteriaPagingToCollection(
         SearchCriteriaInterface $searchCriteria,
         Collection $collection

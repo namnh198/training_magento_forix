@@ -7,15 +7,24 @@ use Magento\Framework\Event\ObserverInterface;
 
 class LogRequestPathInfo implements ObserverInterface
 {
-
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
     private $logger;
 
+    /**
+     * @param \Psr\Log\LoggerInterface $logger
+     */
     public function __construct(
         \Psr\Log\LoggerInterface $logger
     ) {
         $this->logger = $logger;
     }
 
+    /**
+     * @param Observer $observer
+     * @return void
+     */
     public function execute(Observer $observer)
     {
         $request = $observer->getRequest();

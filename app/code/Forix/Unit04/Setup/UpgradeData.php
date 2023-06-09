@@ -11,8 +11,14 @@ use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 
 class UpgradeData implements UpgradeDataInterface
 {
+    /**
+     * @var CategorySetupFactory
+     */
     protected $categorySetupFactory;
 
+    /**
+     * @param CategorySetupFactory $categorySetupFactory
+     */
     public function __construct(
         CategorySetupFactory $categorySetupFactory
     )
@@ -20,6 +26,13 @@ class UpgradeData implements UpgradeDataInterface
         $this->categorySetupFactory = $categorySetupFactory;
     }
 
+    /**
+     * @param ModuleDataSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @return void
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Zend_Validate_Exception
+     */
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         $setup->startSetup();

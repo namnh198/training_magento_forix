@@ -10,7 +10,11 @@ use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
 
 class Verify extends AbstractMassAction
 {
-
+    /**
+     * @param Action\Context $context
+     * @param Filter $filter
+     * @param CollectionFactory $collection
+     */
     public function __construct(
         Action\Context $context,
         Filter $filter,
@@ -21,6 +25,10 @@ class Verify extends AbstractMassAction
         $this->collectionFactory = $collection;
     }
 
+    /**
+     * @param AbstractCollection $collection
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface
+     */
     protected function massAction(AbstractCollection $collection)
     {
         foreach ($collection as $order) {

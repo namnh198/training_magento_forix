@@ -7,14 +7,24 @@ use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 
 class Product extends \Magento\Framework\App\Action\Action
 {
+    /**
+     * @var CollectionFactory
+     */
     protected $productCollectionFactory;
 
+    /**
+     * @param Context $context
+     * @param CollectionFactory $productCollectionFactory
+     */
     public function __construct(Context $context, CollectionFactory $productCollectionFactory)
     {
         parent::__construct($context);
         $this->productCollectionFactory = $productCollectionFactory;
     }
 
+    /**
+     * @return void
+     */
     public function execute()
     {
         $productCollection = $this->productCollectionFactory->create();

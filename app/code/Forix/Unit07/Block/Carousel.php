@@ -4,6 +4,9 @@ namespace Forix\Unit07\Block;
 
 class Carousel extends \Magento\Framework\View\Element\Template
 {
+    /**
+     * @return string[]
+     */
     public function getImageManufactures()
     {
         return [
@@ -18,6 +21,9 @@ class Carousel extends \Magento\Framework\View\Element\Template
         ];
     }
 
+    /**
+     * @return array
+     */
     public function getManufactures()
     {
         $manufactures = [];
@@ -28,6 +34,9 @@ class Carousel extends \Magento\Framework\View\Element\Template
         return $manufactures;
     }
 
+    /**
+     * @return false|string
+     */
     public function getManufacturesJson()
     {
         return json_encode($this->getManufactures());

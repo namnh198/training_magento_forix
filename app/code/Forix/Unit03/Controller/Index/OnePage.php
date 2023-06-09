@@ -6,6 +6,9 @@ use Magento\Framework\Controller\ResultFactory;
 
 class OnePage extends \Magento\Framework\App\Action\Action
 {
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Raw|(\Magento\Framework\Controller\Result\Raw&\Magento\Framework\Controller\ResultInterface)|\Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         $layout = $this->resultFactory->create(ResultFactory::TYPE_PAGE)->getLayout();

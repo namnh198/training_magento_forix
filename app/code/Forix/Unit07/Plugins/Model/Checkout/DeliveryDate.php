@@ -6,8 +6,14 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class DeliveryDate
 {
+    /**
+     * @var \Magento\Quote\Model\QuoteRepository
+     */
     protected $quoteRepository;
 
+    /**
+     * @param \Magento\Quote\Model\QuoteRepository $quoteRepository
+     */
     public function __construct(
         \Magento\Quote\Model\QuoteRepository $quoteRepository
     ) {

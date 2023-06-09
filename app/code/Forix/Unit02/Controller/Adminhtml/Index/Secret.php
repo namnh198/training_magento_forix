@@ -6,11 +6,17 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 
 class Secret extends \Magento\Backend\App\Action implements HttpGetActionInterface
 {
+    /**
+     * @return void
+     */
     public function execute()
     {
         echo 'Allow Access';
     }
 
+    /**
+     * @return bool
+     */
     protected function _isAllowed()
     {
         $secret = $this->getRequest()->getParam('secret');

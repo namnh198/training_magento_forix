@@ -7,6 +7,9 @@ use Magento\Framework\Model\AbstractModel;
 
 class Training extends AbstractModel implements TrainingInterface
 {
+    /**
+     * @return void
+     */
     protected function _construct()
     {
         $this->_init('Forix\Unit05\Model\ResourceModel\Training');

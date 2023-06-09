@@ -8,13 +8,26 @@ use Magento\Ui\DataProvider\AddFilterToCollectionInterface;
 
 class AddConfigurationOptions implements AddFilterToCollectionInterface
 {
+    /**
+     * @var AttributesCollection|null
+     */
     protected $attributeCollection = null;
 
+    /**
+     * @param AttributesCollection $collection
+     */
     public function __construct(AttributesCollection $collection)
     {
         $this->attributeCollection = $collection;
     }
 
+    /**
+     * @param Collection $collection
+     * @param $field
+     * @param $condition
+     * @return void
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function addFilter(Collection $collection, $field, $condition = null)
     {
         if (isset($condition['eq']) && ($numberOfOptions = $condition['eq'])) {

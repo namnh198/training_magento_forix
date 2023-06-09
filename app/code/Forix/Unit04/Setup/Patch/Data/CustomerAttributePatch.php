@@ -6,13 +6,15 @@ use Magento\Customer\Setup\CustomerSetup;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Customer\Model\Customer;
 use Magento\Customer\Setup\CustomerSetupFactory;
+use Magento\Framework\Setup\Patch\DataPatchInterface;
 
-class CustomerAttributePatch implements \Magento\Framework\Setup\Patch\DataPatchInterface
+class CustomerAttributePatch implements DataPatchInterface
 {
     /**
      * @var CustomerSetupFactory
      */
     protected $customerSetupFactory;
+
     /**
      * @var \Magento\Framework\Setup\ModuleDataSetupInterface
      */
@@ -33,7 +35,7 @@ class CustomerAttributePatch implements \Magento\Framework\Setup\Patch\DataPatch
     }
 
     /**
-     * @return \Magento\Framework\Setup\Patch\DataPatchInterface|void
+     * @return void
      * @throws \Exception
      */
     public function apply()

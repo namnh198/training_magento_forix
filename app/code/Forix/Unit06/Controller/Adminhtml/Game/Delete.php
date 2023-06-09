@@ -7,8 +7,15 @@ use Magento\Framework\Controller\ResultFactory;
 
 class Delete extends Action
 {
+    /**
+     * @var \Forix\Unit06\Model\GameFactory
+     */
     protected $gameFactory;
 
+    /**
+     * @param Action\Context $context
+     * @param \Forix\Unit06\Model\GameFactory $gameFactory
+     */
     public function __construct(
         Action\Context $context,
         \Forix\Unit06\Model\GameFactory $gameFactory
@@ -18,6 +25,10 @@ class Delete extends Action
         parent::__construct($context);
     }
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|(\Magento\Framework\Controller\Result\Redirect&\Magento\Framework\Controller\ResultInterface)|\Magento\Framework\Controller\ResultInterface
+     * @throws \Exception
+     */
     public function execute()
     {
         $gameId = $this->getRequest()->getParam('game_id');
@@ -29,6 +40,9 @@ class Delete extends Action
         return $resultRedirect->setPath('*/*/');
     }
 
+    /**
+     * @return bool
+     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Forix_Unit06::games');

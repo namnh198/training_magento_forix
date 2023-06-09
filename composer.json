@@ -21,6 +21,8 @@
     },
     "version": "2.4.3",
     "require": {
+        "ext-json": "*",
+        "ext-intl": "*",
         "cweagans/composer-patches": "^1.7",
         "magento/composer-dependency-version-audit-plugin": "~0.1",
         "magento/composer-root-update-plugin": "~1.1",

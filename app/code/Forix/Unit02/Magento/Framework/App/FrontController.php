@@ -7,8 +7,16 @@ use Magento\Framework\App\RequestInterface;
 
 class FrontController extends \Magento\Framework\App\FrontController
 {
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
     private $logger;
 
+    /**
+     * @param RequestInterface $request
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|null
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function dispatch(RequestInterface $request)
     {
         $routerLists = [];
@@ -21,6 +29,9 @@ class FrontController extends \Magento\Framework\App\FrontController
         return parent::dispatch($request);
     }
 
+    /**
+     * @return mixed|\Psr\Log\LoggerInterface
+     */
     public function getLogger()
     {
         if (! $this->logger) {

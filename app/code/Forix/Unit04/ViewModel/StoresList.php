@@ -7,10 +7,6 @@ use \Magento\Framework\View\Element\Block\ArgumentInterface;
 use \Magento\Catalog\Model\CategoryFactory;
 use \Magento\Store\Model\StoreManager;
 
-/**
- * Class StoresList
- * @package Unit4\RootCategories\ViewModel
- */
 class StoresList implements ArgumentInterface
 {
     /**

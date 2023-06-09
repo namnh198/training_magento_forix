@@ -9,6 +9,12 @@ use Magento\Framework\Setup\ModuleContextInterface;
 
 class InstallSchema implements InstallSchemaInterface
 {
+    /**
+     * @param SchemaSetupInterface $setup
+     * @param ModuleContextInterface $context
+     * @return void
+     * @throws \Zend_Db_Exception
+     */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $installer = $setup;

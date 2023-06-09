@@ -7,14 +7,23 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 
 class AddExampleData implements DataPatchInterface
 {
+    /**
+     * @var ModuleDataSetupInterface
+     */
     private $moduleDataSetup;
 
+    /**
+     * @param ModuleDataSetupInterface $moduleDataSetup
+     */
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup
     ) {
         $this->moduleDataSetup = $moduleDataSetup;
     }
 
+    /**
+     * @return void
+     */
     public function apply()
     {
         $setup = $this->moduleDataSetup;
@@ -29,11 +38,17 @@ class AddExampleData implements DataPatchInterface
         );
     }
 
+    /**
+     * @return array|string[]
+     */
     public function getAliases()
     {
         return [];
     }
 
+    /**
+     * @return array|string[]
+     */
     public static function getDependencies()
     {
         return [];

@@ -10,12 +10,27 @@ use Magento\Framework\App\Action\Context;
 
 class Product extends \Magento\Framework\App\Action\Action
 {
+    /**
+     * @var ProductRepositoryInterface
+     */
     private $productRepository;
 
+    /**
+     * @var SearchCriteriaBuilder
+     */
     private $searchCriteriaBuilder;
 
+    /**
+     * @var SortOrderBuilder
+     */
     private $sortOrderBuilder;
 
+    /**
+     * @param Context $context
+     * @param ProductRepositoryInterface $productRepository
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param SortOrderBuilder $sortOrderBuilder
+     */
     public function __construct(
         Context $context,
         ProductRepositoryInterface $productRepository,
@@ -28,6 +43,9 @@ class Product extends \Magento\Framework\App\Action\Action
         $this->sortOrderBuilder = $sortOrderBuilder;
     }
 
+    /**
+     * @return void
+     */
     public function execute()
     {
         $this->getResponse()->setHeader('Content-Type', 'text/plain');
@@ -40,6 +58,9 @@ class Product extends \Magento\Framework\App\Action\Action
         }
     }
 
+    /**
+     * @return \Magento\Catalog\Api\Data\ProductInterface[]
+     */
     private function getProducts()
     {
         $this->addSortOrder();
@@ -50,6 +71,9 @@ class Product extends \Magento\Framework\App\Action\Action
         return $products->getItems();
     }
 
+    /**
+     * @return void
+     */
     private function addProductFilter()
     {
         $this->searchCriteriaBuilder
@@ -57,6 +81,9 @@ class Product extends \Magento\Framework\App\Action\Action
             ->addFilter('name', 'M%', 'like');
     }
 
+    /**
+     * @return void
+     */
     private function addProductPaging()
     {
         $this->searchCriteriaBuilder
@@ -64,6 +91,9 @@ class Product extends \Magento\Framework\App\Action\Action
             ->setCurrentPage(1);
     }
 
+    /**
+     * @return void
+     */
     private function addSortOrder()
     {
         $this->searchCriteriaBuilder->addSortOrder(

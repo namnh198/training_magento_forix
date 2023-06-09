@@ -10,16 +10,33 @@ use Magento\Framework\UrlInterface;
 
 class GameActions extends Column
 {
-
     const GAME_URL_PATH_EDIT = 'forixunit06/game/edit';
     const GAME_URL_PATH_DELETE = 'forixunit06/game/delete';
 
+    /**
+     * @var UrlBuilder
+     */
     protected $actionUrlBuilder;
 
+    /**
+     * @var UrlInterface
+     */
     protected $urlBuilder;
 
+    /**
+     * @var mixed|string
+     */
     private $editUrl;
 
+    /**
+     * @param ContextInterface $context
+     * @param UiComponentFactory $uiComponentFactory
+     * @param UrlBuilder $actionUrlBuilder
+     * @param UrlInterface $urlBuilder
+     * @param array $components
+     * @param array $data
+     * @param string $editUrl
+     */
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
@@ -27,7 +44,7 @@ class GameActions extends Column
         UrlInterface $urlBuilder,
         array $components = [],
         array $data = [],
-        $editUrl = self::GAME_URL_PATH_EDIT
+        string $editUrl = self::GAME_URL_PATH_EDIT
     ) {
         $this->urlBuilder = $urlBuilder;
         $this->actionUrlBuilder = $actionUrlBuilder;
@@ -35,6 +52,10 @@ class GameActions extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
+    /**
+     * @param array $dataSource
+     * @return array
+     */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {

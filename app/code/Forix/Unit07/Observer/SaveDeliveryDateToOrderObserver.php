@@ -7,6 +7,10 @@ use Magento\Framework\Event\ObserverInterface;
 
 class SaveDeliveryDateToOrderObserver implements ObserverInterface
 {
+    /**
+     * @param Observer $observer
+     * @return void
+     */
     public function execute(Observer $observer)
     {
         $quote = $observer->getQuote();

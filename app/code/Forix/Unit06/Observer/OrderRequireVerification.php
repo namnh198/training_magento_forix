@@ -7,8 +7,14 @@ use Magento\Framework\Event\ObserverInterface;
 
 class OrderRequireVerification implements ObserverInterface
 {
+    /**
+     * @var \Magento\Framework\App\State
+     */
     private $state;
 
+    /**
+     * @param \Magento\Framework\App\State $state
+     */
     public function __construct(
         \Magento\Framework\App\State $state
     )
@@ -16,6 +22,11 @@ class OrderRequireVerification implements ObserverInterface
         $this->state = $state;
     }
 
+    /**
+     * @param Observer $observer
+     * @return void
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function execute(Observer $observer)
     {
         $order = $observer->getOrder();

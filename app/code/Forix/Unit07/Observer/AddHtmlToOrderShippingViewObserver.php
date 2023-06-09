@@ -7,14 +7,23 @@ use Magento\Framework\Event\ObserverInterface;
 
 class AddHtmlToOrderShippingViewObserver implements ObserverInterface
 {
-
+    /**
+     * @var \Magento\Framework\Stdlib\DateTime\TimezoneInterface
+     */
     private $_timezone;
 
+    /**
+     * @param \Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezone
+     */
     public function __construct(\Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezone)
     {
         $this->_timezone = $timezone;
     }
 
+    /**
+     * @param EventObserver $observer
+     * @return void
+     */
     public function execute(EventObserver $observer)
     {
         if($observer->getElementName() == 'order_shipping_view')

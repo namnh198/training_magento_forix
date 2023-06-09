@@ -10,7 +10,6 @@ class Router implements \Magento\Framework\App\RouterInterface
     protected $actionPath;
 
     /**
-     * Router constructor.
      * @param \Magento\Framework\App\ActionFactory $actionFactory
      */
     public function __construct(\Magento\Framework\App\ActionFactory $actionFactory) {

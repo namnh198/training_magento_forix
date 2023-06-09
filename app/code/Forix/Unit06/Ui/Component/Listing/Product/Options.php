@@ -6,6 +6,9 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class Options implements OptionSourceInterface
 {
+    /**
+     * @return array[]
+     */
     public function toOptionArray()
     {
         return [

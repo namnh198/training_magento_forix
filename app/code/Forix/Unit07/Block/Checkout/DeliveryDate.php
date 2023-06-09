@@ -6,7 +6,10 @@ use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
 
 class DeliveryDate implements LayoutProcessorInterface
 {
-
+    /**
+     * @param $jsLayout
+     * @return array
+     */
     public function process($jsLayout)
     {
         $shippingAddress = &$jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']

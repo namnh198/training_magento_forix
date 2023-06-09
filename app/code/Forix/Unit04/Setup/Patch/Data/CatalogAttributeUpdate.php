@@ -33,7 +33,7 @@ class CatalogAttributeUpdate implements DataPatchInterface
     }
 
     /**
-     * @return DataPatchInterface|void
+     * @return void
      */
     public function apply()
     {

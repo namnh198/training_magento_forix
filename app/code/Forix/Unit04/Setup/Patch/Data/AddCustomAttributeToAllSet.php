@@ -37,7 +37,7 @@ class AddCustomAttributeToAllSet implements DataPatchInterface
     }
 
     /**
-     * @return DataPatchInterface|void
+     * @return void
      * @throws LocalizedException
      * @throws \Zend_Validate_Exception
      */

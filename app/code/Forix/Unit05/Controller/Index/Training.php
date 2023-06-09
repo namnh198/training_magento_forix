@@ -11,12 +11,27 @@ use Magento\Framework\App\Action\Context;
 class Training extends Action
 {
 
+    /**
+     * @var TrainingRepositoryInterface
+     */
     private $trainingRepository;
 
+    /**
+     * @var SearchCriteriaBuilder
+     */
     private $searchCriteriaBuilder;
 
+    /**
+     * @var FilterBuilder
+     */
     private $filterBuilder;
 
+    /**
+     * @param Context $context
+     * @param TrainingRepositoryInterface $trainingRepository
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param FilterBuilder $filterBuilder
+     */
     public function __construct(
         Context $context,
         TrainingRepositoryInterface $trainingRepository,
@@ -28,6 +43,10 @@ class Training extends Action
         $this->filterBuilder = $filterBuilder;
         parent::__construct($context);
     }
+
+    /**
+     * @return void
+     */
     public function execute()
     {
         $this->getResponse()->setHeader('content-type', 'text/plain');

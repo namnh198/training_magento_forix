@@ -12,14 +12,33 @@ use Magento\Framework\App\Action\Context;
 
 class Customer extends \Magento\Framework\App\Action\Action
 {
+    /**
+     * @var CustomerRepository
+     */
     private $customerRepositry;
 
+    /**
+     * @var SearchCriteriaBuilder
+     */
     private $searchCriteriaBuilder;
 
+    /**
+     * @var FilterBuilder
+     */
     private $filterBuilder;
 
+    /**
+     * @var FilterGroupBuilder
+     */
     private $filterGroupBuilder;
 
+    /**
+     * @param Context $context
+     * @param CustomerRepository $customerRepository
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param FilterBuilder $filterBuilder
+     * @param FilterGroupBuilder $filterGroupBuilder
+     */
     public function __construct(
         Context $context,
         CustomerRepository $customerRepository,
@@ -34,6 +53,9 @@ class Customer extends \Magento\Framework\App\Action\Action
         $this->filterGroupBuilder = $filterGroupBuilder;
     }
 
+    /**
+     * @return void
+     */
     public function execute()
     {
         $this->getResponse()->setHeader('Content-Type', 'text/plain');
@@ -49,6 +71,10 @@ class Customer extends \Magento\Framework\App\Action\Action
         }
     }
 
+    /**
+     * @return \Magento\Customer\Api\Data\CustomerInterface[]
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     private function getCustomers()
     {
         $this->addCustomerFilter();
@@ -56,6 +82,9 @@ class Customer extends \Magento\Framework\App\Action\Action
         return $this->customerRepositry->getList($searchCriteria)->getItems();
     }
 
+    /**
+     * @return void
+     */
     private function addCustomerFilter()
     {
         $emailFilter = $this->filterBuilder

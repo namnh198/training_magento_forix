@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © Magento. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Forix_Unit06::game"
+             title="Games"
+             module="Forix_Unit06"
+             resource="Forix_Unit06::games"
+             parent="Magento_Catalog::catalog_products"
+             action="forixunit06/game" sortOrder="199"/>
+        <add id="Forix_Unit06::new_admin_page"
+             title="New Admin Page"
+             module="Forix_Unit06"
+             resource="Forix_Unit06::new_page"
+             parent="Magento_Catalog::inventory"
+             action="forixunit06/page/index" sortOrder="10"/>
+    </menu>
+</config>

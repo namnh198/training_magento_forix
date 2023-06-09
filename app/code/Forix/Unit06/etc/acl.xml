@@ -10,6 +10,7 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Forix_Unit06::games" title="Games" translate="title" sortOrder="99"/>
                 <resource id="Forix_Unit06::new_page" title="New Admin Page" translate="title" sortOrder="100"/>
+                <resource id="Forix_Unit06::vendor" title="Vendor" translate="title" sortOrder="110"/>
             </resource>
         </resources>
     </acl>

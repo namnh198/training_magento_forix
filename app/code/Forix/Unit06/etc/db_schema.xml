@@ -23,4 +23,42 @@
             <column name="game_id"/>
         </constraint>
     </table>
+
+    <table name="vendor_entity" engine="innodb" comment="Computer games table" resource="default">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="text" name="vendor_name" nullable="false" comment="Vendor name"/>
+        <column xsi:type="smallint" name="status" padding="10" nullable="false" default="1" comment="Is Brand Active?"/>
+        <column xsi:type="timestamp" name="creation_time" default="CURRENT_TIMESTAMP" on_update="false" nullable="false" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" default="CURRENT_TIMESTAMP" on_update="true" nullable="false" comment="Modification Time"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="VENDOR_NAME_FULLTEXT" indexType="fulltext">
+            <column name="vendor_name"/>
+        </index>
+    </table>
+    <table name="vendor_product" engine="innodb" comment="Computer games table" resource="default">
+        <column xsi:type="int" name="entity_id" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="vendor_id" unsigned="true" nullable="false" identity="false" default="0" comment="Vendor ID"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" identity="false" default="0" comment="Product ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+            <column name="vendor_id"/>
+            <column name="product_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="VENDOR_PRODUCT_VENDOR_ID_PRODUCT_ID" table="vendor_product"
+                    column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="VENDOR_PRODUCT_VENDOR_ID_VENDOR_ID" table="vendor_product"
+                    column="vendor_id" referenceTable="vendor_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="VENDOR_PRODUCT_VENDOR_ID_PRODUCT_ID_UNIQUE">
+            <column name="vendor_id"/>
+            <column name="product_id"/>
+        </constraint>
+        <index referenceId="VENDOR_PRODUCT_PRODUCT_PRODUCT_ID_INDEX" indexType="btree">
+            <column name="product_id"/>
+        </index>
+    </table>
 </schema>

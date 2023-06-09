@@ -20,5 +20,11 @@
              resource="Forix_Unit06::new_page"
              parent="Magento_Catalog::inventory"
              action="forixunit06/page/index" sortOrder="10"/>
+        <add id="Forix_Unit06::vendor"
+             title="Vendor"
+             module="Forix_Unit06"
+             resource="Forix_Unit06::vendor"
+             parent="Magento_Catalog::catalog_products"
+             action="forixunit06/vendor" sortOrder="199"/>
     </menu>
 </config>

@@ -1,0 +1,13 @@
+diff --git a/vendor/magento/framework/Serialize/Serializer/Json.php b/vendor/magento/framework/Serialize/Serializer/Json.php
+--- a/vendor/magento/framework/Serialize/Serializer/Json.php	
++++ b/vendor/magento/framework/Serialize/Serializer/Json.php	(date 1686296184379)
+@@ -34,6 +34,9 @@
+      */
+     public function unserialize($string)
+     {
++        if (! $string) {
++            return [];
++        }
+         $result = json_decode($string, true);
+         if (json_last_error() !== JSON_ERROR_NONE) {
+             throw new \InvalidArgumentException("Unable to unserialize value. Error: " . json_last_error_msg());

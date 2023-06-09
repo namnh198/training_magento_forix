@@ -15,11 +15,13 @@
             "magento/composer-dependency-version-audit-plugin": true,
             "magento/composer-root-update-plugin": true,
             "magento/inventory-composer-installer": true,
-            "magento/magento-composer-installer": true
+            "magento/magento-composer-installer": true,
+            "cweagans/composer-patches": true
         }
     },
     "version": "2.4.3",
     "require": {
+        "cweagans/composer-patches": "^1.7",
         "magento/composer-dependency-version-audit-plugin": "~0.1",
         "magento/composer-root-update-plugin": "~1.1",
         "magento/module-bundle-sample-data": "100.4.*",
@@ -103,6 +105,11 @@
         }
     ],
     "extra": {
-        "magento-force": "override"
+        "magento-force": "override",
+        "patches": {
+            "magento/framework": {
+                "Fix Decode Error": "patches/composer/fix_decode_error.patch"
+            }
+        }
     }
 }

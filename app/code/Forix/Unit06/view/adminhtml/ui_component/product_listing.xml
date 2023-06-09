@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* Copyright Â© Magento. All rights reserved.
+* See COPYING.txt for license details.
+*/
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <filters name="listing_filters">
+            <filterSelect name="configurable_options" sortOrder="100" provider="${ $.parentName }">
+                <settings>
+                    <options class="Forix\Unit06\Ui\Component\Listing\Product\Options"/>
+                    <label translate="true">Configurable options</label>
+                    <dataScope>configurable_options</dataScope>
+                </settings>
+            </filterSelect>
+        </filters>
+    </listingToolbar>
+</listing>

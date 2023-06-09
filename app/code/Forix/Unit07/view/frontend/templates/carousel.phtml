@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var $block \Forix\Unit07\Block\Carousel
+ */
+$manufacturesSlide = $block->getManufacturesJson();
+?>
+<?php if ($manufacturesSlide): ?>
+<div class="owl-carousel manufacturers-carousel" data-mage-init='{"Forix_Unit07/js/carousel": {"carousels": <?= $manufacturesSlide ?>, "template": "#carousel-template"}}'></div>
+
+<script type="text/x-magento-template" id="carousel-template">
+    <% _.each(carousels, function(carousel) { %>
+    <div class="item">
+        <img src="<%= carousel %>" width="100%"/>
+    </div>
+    <% }) %>
+</script>
+<?php endif; ?>

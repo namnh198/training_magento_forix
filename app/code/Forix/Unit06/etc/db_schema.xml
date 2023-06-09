@@ -49,7 +49,7 @@
         </constraint>
         <constraint xsi:type="foreign" referenceId="VENDOR_PRODUCT_VENDOR_ID_PRODUCT_ID" table="vendor_product"
                     column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id"
-                    onDelete="CASCADE"/>
+                    onDelete="NO ACTION"/>
         <constraint xsi:type="foreign" referenceId="VENDOR_PRODUCT_VENDOR_ID_VENDOR_ID" table="vendor_product"
                     column="vendor_id" referenceTable="vendor_entity" referenceColumn="entity_id"
                     onDelete="CASCADE"/>

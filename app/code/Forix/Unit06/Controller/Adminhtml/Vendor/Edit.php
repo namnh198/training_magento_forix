@@ -5,7 +5,7 @@ namespace Forix\Unit06\Controller\Adminhtml\Vendor;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \Magento\Backend\App\Action
+class Edit extends \Magento\Backend\App\Action
 {
     /**
      * ResultPageFactory
@@ -13,6 +13,10 @@ class Index extends \Magento\Backend\App\Action
      * @var bool|PageFactory
      */
     protected $resultPageFactory = false;
+
+    protected $vendorFactory;
+
+    protected $coreRegistry;
 
     /**
      * Index Constructor
@@ -22,11 +26,15 @@ class Index extends \Magento\Backend\App\Action
      */
     public function __construct(
         Context     $context,
-        PageFactory $resultPageFactory
+        PageFactory $resultPageFactory,
+        \Forix\Unit06\Model\VendorFactory $vendorFactory,
+        \Magento\Framework\Registry $registry
     )
     {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
+        $this->vendorFactory = $vendorFactory;
+        $this->coreRegistry = $registry;
     }
 
     /**
@@ -36,10 +44,21 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+        $vendorId = $this->getRequest()->getParam('vendor_id');
+        $vendor = $this->vendorFactory->create();
+        if ($vendorId) {
+            $vendor->load($vendorId);
+            $vendor->setVendorId($vendor->getId());
+        }
+
+        $this->coreRegistry->register('vendor', $vendor);
+
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Forix_Unit06::vendor');
-        $resultPage->addBreadcrumb(__('Manage Vendors'), __('Manage Vendors'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Manage Vendors'));
+        $resultPage->addBreadcrumb(__('Vendors'), __('Vendors'));
+        $title = $vendor->getId() ? __('Edit Vendor: %1', $vendor->getVendorName()) : __('New Vendor');
+        $resultPage->addBreadcrumb($title, $title);
+        $resultPage->getConfig()->getTitle()->prepend($title);
         return $resultPage;
     }
 

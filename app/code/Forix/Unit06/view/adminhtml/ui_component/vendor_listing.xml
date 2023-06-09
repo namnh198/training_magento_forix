@@ -129,7 +129,7 @@
         </column>
         <column name="status">
             <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Sparsh\Brand\Model\Source\IsActive</item>
+                <item name="options" xsi:type="object">Forix\Unit06\Model\Source\Status</item>
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
@@ -140,5 +140,13 @@
                 </item>
             </argument>
         </column>
+        <actionsColumn name="actions" class="Forix\Unit06\Ui\Component\Listing\Column\VendorActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">brand_id</item>
+                    <item name="sortOrder" xsi:type="number">100</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>

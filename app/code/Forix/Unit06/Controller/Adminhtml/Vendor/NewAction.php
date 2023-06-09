@@ -3,9 +3,10 @@
 namespace Forix\Unit06\Controller\Adminhtml\Vendor;
 
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \Magento\Backend\App\Action
+class NewAction extends \Magento\Backend\App\Action
 {
     /**
      * ResultPageFactory
@@ -32,15 +33,12 @@ class Index extends \Magento\Backend\App\Action
     /**
      * Index action
      *
-     * @return \Magento\Framework\View\Result\Page
+     * @return \Magento\Backend\Model\View\Result\Forward
      */
     public function execute()
     {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Forix_Unit06::vendor');
-        $resultPage->addBreadcrumb(__('Manage Vendors'), __('Manage Vendors'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Manage Vendors'));
-        return $resultPage;
+        $resultFoward = $this->resultFactory->create(ResultFactory::TYPE_FORWARD);
+        return $resultFoward->forward('edit');
     }
 
     /**

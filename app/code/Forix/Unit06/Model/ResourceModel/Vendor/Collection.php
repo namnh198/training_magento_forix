@@ -16,4 +16,15 @@ class Collection extends AbstractCollection
         );
         $this->_map['fields']['vendor_id'] = 'main_table.vendor_id';
     }
+
+    public function addProductIdFilter($productId)
+    {
+        $this->getSelect()->join(
+            ['vp' => 'vendor_product'],
+            'main_table.entity_id = vp.vendor_id',
+        )->where(
+            'vp.product_id = ?', $productId
+        );
+        return $this;
+    }
 }

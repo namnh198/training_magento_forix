@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var Forix\Unit06\Block\Product\Vendor $block
+ */
+$vendors = $block->getVendors();
+?>
+
+<?php if (! empty($vendors)): ?>
+    <div class="product attribute vendor">
+        <span>Vendor :</span>
+        <div class="value" itemprop="vendor">
+            <?php foreach ($vendors as $vendor): ?>
+                <span><?= $vendor->getVendorName() ?></span>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>

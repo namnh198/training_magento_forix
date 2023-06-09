@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="modifyProductPrice" type="Forix\Unit01\Plugins\Catalog\Model\ProductPricePlugin" />
+    </type>
+    <type name="Magento\Theme\Block\Html\Footer">
+        <plugin name="modifyFooterCopyright" type="Forix\Unit01\Plugins\Theme\Block\Html\FooterCopyRight" />
+    </type>
+    <type name="Magento\Theme\Block\Html\Breadcrumbs">
+        <plugin name="beforeAddCrumbs" type="Forix\Unit01\Plugins\Theme\Block\Html\BreadCrumbPlugin" />
+    </type>
+</config>

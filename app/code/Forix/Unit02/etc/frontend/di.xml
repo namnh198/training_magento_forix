@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="routerdash" xsi:type="array">
+                    <item name="class" xsi:type="string">Forix\Unit02\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">70</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\App\Router\NoRouteHandlerList">
+        <arguments>
+            <argument name="handlerClassesList" xsi:type="array">
+                <item name="default" xsi:type="array">
+                    <item name="class" xsi:type="string">Forix\Unit02\Router\NoRouterHandler</item>
+                    <item name="sortOrder" xsi:type="string">99</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\App\Response\Http">
+        <plugin name="captureHtmlResponse" type="Forix\Unit02\Plugins\Framework\App\Response\CaptureHtmlResponse" />
+    </type>
+    <type name="Magento\Catalog\Controller\Product\View">
+        <plugin name="afterProductView" type="Forix\Unit02\Plugins\Catalog\Controller\ProductView" />
+    </type>
+</config>

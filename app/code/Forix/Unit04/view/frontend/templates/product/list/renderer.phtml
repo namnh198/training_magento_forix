@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use Magento\Catalog\Model\Product;
+use Magento\Swatches\Block\Product\Renderer\Listing\Configurable;
+use Magento\Swatches\ViewModel\Product\Renderer\Configurable as ConfigurableViewModel;
+
+/** @var Configurable $block */
+/** @var Product $product */
+$product = $block->getProduct();
+include $block->getTemplateFile('Magento_Swatches::product/listing/renderer.phtml');
+?>
+
+<div class="item">
+    <strong>Custom Attribute:</strong><?= $product->getData('custom_attribute_code') ?>
+</div>

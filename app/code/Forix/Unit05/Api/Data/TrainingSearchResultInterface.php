@@ -8,12 +8,12 @@ interface TrainingSearchResultInterface extends SearchResultsInterface
 {
     /**
      * @api
-     * @return TrainingInterface[]
+     * @return \Forix\Unit05\Api\Data\TrainingInterface[]
      */
     public function getItems();
 
     /**
-     * @param TrainingInterface[] $items
+     * @param \Forix\Unit05\Api\Data\TrainingInterface[]|null $items
      * @return $this
      */
     public function setItems(array $items = null);

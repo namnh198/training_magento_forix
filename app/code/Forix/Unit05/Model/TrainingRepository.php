@@ -64,6 +64,7 @@ class TrainingRepository implements TrainingRepositoryInterface
         $fields = [];
         $conditions = [];
         foreach ($filterGroup->getFilters() as $filters) {
+            $filters = ! is_array($filters) ? [$filters] : $filters;
             foreach ($filters as $filter) {
                 $condition = $filter->getConditionType() ? $filter->getConditionType() : 'eq';
                 $fields[] = $filter->getField();

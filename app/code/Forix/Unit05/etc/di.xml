@@ -9,4 +9,8 @@
     <preference for="Forix\Unit05\Api\TrainingRepositoryInterface" type="Forix\Unit05\Model\TrainingRepository"/>
     <preference for="Forix\Unit05\Api\Data\TrainingInterface" type="Forix\Unit05\Model\Training"/>
     <preference for="Forix\Unit05\Api\Data\TrainingSearchResultInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Forix\Unit05\Api\Data\CategoryCountryInterface" type="Forix\Unit05\Model\CategoryCountry" />
+    <type name="Magento\Catalog\Api\CategoryRepositoryInterface">
+        <plugin name="categoryCountriesExtension" type="Forix\Unit05\Plugin\Category\Repository"/>
+    </type>
 </config>

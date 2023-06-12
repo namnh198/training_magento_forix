@@ -1,0 +1,55 @@
+{
+    "sales_order": {
+        "column": {
+            "require_verification": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "require_verification": true
+        }
+    },
+    "computer_games": {
+        "column": {
+            "game_id": true,
+            "name": true,
+            "type": true,
+            "trial_period": true,
+            "release_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "vendor_entity": {
+        "column": {
+            "entity_id": true,
+            "vendor_name": true,
+            "status": true,
+            "creation_time": true,
+            "update_time": true
+        },
+        "index": {
+            "VENDOR_ENTITY_VENDOR_NAME": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "vendor_product": {
+        "column": {
+            "entity_id": true,
+            "vendor_id": true,
+            "product_id": true
+        },
+        "index": {
+            "VENDOR_PRODUCT_PRODUCT_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "VENDOR_PRODUCT_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true,
+            "VENDOR_PRODUCT_VENDOR_ID_VENDOR_ENTITY_ENTITY_ID": true,
+            "VENDOR_PRODUCT_VENDOR_ID_PRODUCT_ID": true
+        }
+    }
+}

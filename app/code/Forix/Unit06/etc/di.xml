@@ -13,4 +13,31 @@
             </argument>
         </arguments>
     </virtualType>
+    <virtualType name="computerGameGridCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">computer_games</argument>
+            <argument name="resourceModel" xsi:type="string">Forix\Unit06\Model\ResourceModel\Game</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="vendorGridCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">vendor_entity</argument>
+            <argument name="resourceModel" xsi:type="string">Forix\Unit06\Model\ResourceModel\Vendor</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="computer_games_listing_data_source" xsi:type="string">computerGameGridCollection</item>
+                <item name="vendor_listing_data_source" xsi:type="string">vendorGridCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider">
+        <arguments>
+            <argument name="addFilterStrategies" xsi:type="array">
+                <item name="configurable_options" xsi:type="object">Forix\Unit06\Ui\DataProvider\Product\AddConfigurationOptions</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
